@@ -24,9 +24,19 @@
         <button>Adicionar Ideia</button>
         <button class="fat">Ver Ideias</button>
 
-        <p>Com ❤️ rocktseat </p>
+        <p id="footer">Com ❤️ <a href="http://rocktseat.com.br">Rocktseat</a></p>
  
+        <script>
+            document
+                .querySelector("button.fat")
+                .addEventListener("click", function(){
+                    document
+                        .querySelector("#footer")
+                        .classList
+                        .toggle("hide")
+                })
 
+        </script>
         
 
     </body>

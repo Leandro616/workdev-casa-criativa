@@ -18,3 +18,12 @@ button {
     color: #ffffff;
     background: #ff5e84;
 }
+
+#footer a {
+    text-decoration: none;
+    color: #25282b;
+}
+
+.hide {
+    display: none;
+}
