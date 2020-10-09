@@ -3,6 +3,16 @@ body {
     color: #25282b;
 
     text-align: center;
+
+    margin: 0;
+}
+
+#container {
+    width: 90%;
+    max-width: 980px;
+    
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button {
@@ -27,3 +37,5 @@ button {
 .hide {
     display: none;
 }
+
+
