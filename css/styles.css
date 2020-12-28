@@ -7,10 +7,6 @@ body {
     margin: 0;
 }
 
-.hide {
-    display: none;
-}
-
 a {
     color: #ff5e84;
     font-weight: bold;
@@ -147,6 +143,8 @@ footer a {
     display: flex;
     justify-content: center;
 
+    transition: 400ms;
+
 }
 
 #modal .content {
@@ -159,9 +157,106 @@ footer a {
     text-transform: uppercase;
 }
 
+#modal form {
+    width: 80%;
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+form div:nth-child(3), 
+form div:nth-child(4),
+form div:nth-child(5) {
+    grid-column: span 2;
+}
 
 
+form input,
+form textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border-radius: 6px;
+    border: 1px solid rgba(141, 25, 52, 0.5);
+
+    outline: none;
+
+    font-size: 16px;
+}
+
+form label {
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 0.8px;
+}
+
+form a {
+    width: 150px;
+    height: 40px;
+    
+    background-color: #ffffff22;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    border-radius: 6px;
+
+    align-self: end;
+}
+
+form a:hover {
+    background: #fff;
+    color: #ff5e84;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 400ms;
+}
+
+form button {
+    background-color: #fff;
+
+    width: 150px;
+    height: 40px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    margin-top: 32px;
+
+    grid-column: 2;
+    justify-self: end;
+}
+
+form button:hover {
+    background-color: #0984e3;
+    color: white;
+
+    text-decoration: none;
+
+    transition: 400ms;
+}
 
 
+#modal.hide {
+    opacity: 0;
+    visibility: hidden;
+}
 
 
