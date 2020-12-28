@@ -2,6 +2,8 @@ body {
     background: #e5e5e5;
     color: #25282b;
     
+    font-family: 'Montserrat', 'sans-serif';
+
     margin: 0;
 }
 
@@ -17,6 +19,12 @@ a {
 
 a:hover { 
     text-decoration: underline;
+}
+
+p, .description {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
 }
 
 
@@ -50,7 +58,10 @@ button {
 
     border: none;
 
+    font-size: 14px;
     font-weight: bold;
+    line-height: 18px;
+    letter-spacing: 0.2px;
 
     cursor: pointer;
     outline: none;
@@ -78,11 +89,30 @@ button.fat:hover {
 
 footer {
     text-align: center;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+
+    color: #777;
+}
+
+footer a {
+    opacity: 0.7;
 }
 
 .idea {
     display: flex;
+
+    border-radius: 8px;
+    box-shadow: 0 4px 16px -8px rgba(1, 1, 1, 0.1);
+    background-color: #fff;
+
+    padding: 32px;
     margin-bottom: 32px;
+
+
 }
 
 .idea img {
@@ -96,6 +126,38 @@ footer {
     margin: 0;
 }
 
+.idea p {
+    margin: 8px 0;
+    color: #777;
+}
+
+.idea .description {
+    margin: 16px 0;
+}
+
+#modal {
+    background: #ff5e84;
+
+    position: absolute;
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+
+}
+
+#modal .content {
+    margin-top: 128px;
+}
+
+#modal .content h1 {
+    text-align: center;
+
+    text-transform: uppercase;
+}
 
 
 
