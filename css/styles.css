@@ -259,4 +259,28 @@ form button:hover {
     visibility: hidden;
 }
 
+/* IDEIAS.HTML */
+#page-ideas #container {
+    display: block;
+}
+
+#page-ideas header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#page-ideas nav {
+    display: flex;
+
+}
+
+#page-ideas nav li {
+    list-style-type: none;
+
+    margin-right: 16px;
+}
+
+
+
+
 
