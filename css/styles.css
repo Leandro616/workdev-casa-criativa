@@ -7,6 +7,10 @@ body {
     margin: 0;
 }
 
+body.hideScroll {
+    overflow: hidden;
+}
+
 a {
     color: #ff5e84;
     font-weight: bold;
@@ -18,7 +22,7 @@ a:hover {
 }
 
 p, .description {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.1px;
 }
@@ -35,7 +39,9 @@ p, .description {
 
 #intro {
     width: 300px;
-    margin-right: 20px;
+    margin-right: 64px;
+
+
 }
 
 main {
@@ -46,6 +52,27 @@ main {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 32px;
+}
+
+.button {
+    font-size: 14px;
+    color: white;
+
+    width: 130px;
+    height: 40px;
+    
+    background-color: #ff5e84;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+}
+
+.button:hover {
+    background-color: #0984e3;
+    text-decoration: none;
 }
 
 button {
@@ -65,22 +92,6 @@ button {
 
 button:hover {
     text-decoration: underline;
-}
-
-
-button.fat {
-    color: #ffffff;
-    background: #ff5e84;
-
-    width: 150px;
-    height: 40px;
-
-    border-radius: 6px;
-    box-shadow: 0px 8px 16px rgba(255, 0, 92, 0.16);
-}
-
-button.fat:hover {
-    text-decoration: none;
 }
 
 footer {
@@ -136,9 +147,11 @@ footer a {
 
     position: absolute;
     top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-    width: 100vw;
-    height: 100vh;
+    
 
     display: flex;
     justify-content: center;
@@ -148,7 +161,9 @@ footer a {
 }
 
 #modal .content {
-    margin-top: 128px;
+    margin-top: 5%;
+
+    color: white;
 }
 
 #modal .content h1 {
@@ -161,12 +176,16 @@ footer a {
     width: 80%;
     max-width: 800px;
 
-    margin: 0 auto;
+    margin: 0 auto 15%;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     gap: 20px;
+}
+
+#modal.addScroll {
+    overflow: auto;
 }
 
 form div:nth-child(3), 
@@ -272,15 +291,61 @@ form button:hover {
 #page-ideas nav {
     display: flex;
 
+    align-items: center;
+
 }
 
 #page-ideas nav li {
     list-style-type: none;
 
     margin-right: 16px;
+
+    font-size: 14px;
 }
 
+#page-ideas nav li a{
+    color: #25282b;
+}
 
+#page-ideas nav li a.button{
+    color: white;
+}
+
+#page-ideas nav li:last-child {
+    margin: 0;
+}
+
+section#title {
+    text-align: center;
+}
+
+section#title p {
+    opacity: 0.7;
+    margin: 0;
+}
+
+section#title h1 {
+    margin: 0;
+
+    font-size: 28px;
+}
+
+section#ideas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+section#ideas .idea {
+    margin: 0;
+}
+
+section#title,
+section#ideas,
+footer {
+    margin-top: 64px;
+}
 
 
 
