@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Casa Criativa</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" 
+                rel="stylesheet"> 
+    </head>
+    <body>
+
+        <div id="container">
+            <section id="intro">
+                
+                <header>
+                    <a href="/">
+                        <img src="/img/Logo.png" alt="logo de casa criativa">
+                    </a>
+                </header>
+
+                <main>
+                    <p>
+                        Ficar em casa em periodos longos não deve ser nada fácil.
+                    </p>
+                    <p>
+                        Por isso, iremos catalogar ideias, <strong>brincadeiras, jogos, filmes,
+                        livros, cursos, dicas</strong> e tudo que for necessário para tornar esse
+                        momento mais interessante.
+                    </p>
+                    <p>
+                        Comece clicando em <span>ver ideias</span> para ver as ideias cadastradas e 
+                        <span>contribua adicionando sua ideia</span>
+                    </p>
+                </main>
+
+                <section id="buttons">
+                    <button onclick="onOff()">+ Adicionar Ideia</button>
+                    <a href="/ideias" class="button">Ver Ideias</a>
+                </section>
+
+                <footer>
+                    <p id="footer">Com ❤️ <a href="http://rocketseat.com.br" target="_blank">Rocktseat</a></p>
+                </footer>
+            </section>
+
+            <section id="last-ideas">
+                <div class="idea">
+                    <img
+                        src="https://www.flaticon.com/svg/static/icons/svg/2729/2729007.svg" 
+                        alt="Imagem de Curso de Programação">
+
+                    <div class="content">
+                        <h3>Curso de Programação</h3>
+                        <p>Estudo</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi magnam repudiandae, 
+                            optio fugiat nam labore eius perferendis blanditiis commodi reprehenderit delectus 
+                            nihil error obcaecati laboriosam sequi repellendus amet. Corporis, nostrum!
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+                </div>
+                
+                <div class="idea">
+                    <img
+                        src="https://www.flaticon.com/svg/static/icons/svg/2729/2729005.svg" 
+                        alt="Imagem de Curso de Programação">
+
+                    <div class="content">
+                        <h3>Exercícios</h3>
+                        <p>Saúde</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi magnam repudiandae, 
+                            optio fugiat nam labore eius perferendis blanditiis commodi reprehenderit delectus 
+                            nihil error obcaecati laboriosam sequi repellendus amet. Corporis, nostrum!
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+                </div>
+
+                <div class="idea">
+                    <img
+                        src="https://www.flaticon.com/svg/static/icons/svg/2729/2729027.svg" 
+                        alt="Imagem de Meditação">
+
+                    <div class="content">
+                        <h3>Meditação</h3>
+                        <p>Mentalidade</p>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi magnam repudiandae, 
+                            optio fugiat nam labore eius perferendis blanditiis commodi reprehenderit delectus 
+                            nihil error obcaecati laboriosam sequi repellendus amet. Corporis, nostrum!
+                        </div>
+                        <a href="#">Ir para a ideia</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        
+        <!-- Modal -->
+        <div id="modal" class="hide">
+            <div class="content">
+                <h1>Nova ideia</h1>
+                 
+                <form action="">
+
+                    <div class="input-wrapper">
+                        <label for="titulo">Título da ideia</label>
+                        <input type="text" name="titulo">
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="categoria">Categoria</label>
+                        <input type="text" name="categoria">
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="imagem">Link da imagem</label>
+                        <input type="url" name="imagem">
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="descricao">Digite uma descrição para esta ideia</label>
+                        <textarea type="text" name="descricao" cols="30" rows="10"></textarea>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="link">Link da ideia</label>
+                        <input type="url" name="link">
+                    </div>
+
+                    <a href="#" onclick="onOff()">Voltar</a>
+                    <button>Salvar</button>
+
+                </form>
+            </div>
+        </div>
+
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
