@@ -30,7 +30,7 @@ const ideas = [
         url: "https:rocketseat.com.br"
     },
     {
-        img:"https://www.flaticon.com/svg/vstatic/svg/2933/2933498.svg?token=exp=1612990578~hmac=0896a3decfb7b0cf04a68385789a8407",
+        img:"https://cdn.icon-icons.com/icons2/897/PNG/512/1-04_icon-icons.com_69203.png",
         title: "Games",
         category: "Diversão",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi magnam",
@@ -54,11 +54,20 @@ nunjucks.configure("views", {
 // rota
 // captura o pedido do cliente para responder
 server.get("/", function(req, res) {
-    return res.render("index.html");
+    
+    const ideasReversed = [...ideas].reverse()
+    let lastIdeas = []
+    for (let idea of ideasReversed) {
+        if (lastIdeas.length < 2) {
+            lastIdeas.push(idea)
+        }
+    }
+
+    return res.render("index.html", { ideas: lastIdeas });
 });
 
 server.get("/ideias", function(req, res) {
-    return res.render("ideias.html");
+    return res.render("ideias.html", {ideas});
 });
 
 // servidor ligado na porta 3000
