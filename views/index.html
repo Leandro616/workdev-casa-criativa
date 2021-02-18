@@ -1,74 +1,41 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Casa Criativa</title>
-        <link rel="stylesheet" href="/css/styles.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" 
-                rel="stylesheet"> 
-    </head>
-    <body>
+{% extends "layout.html" %}
 
-        <div id="container">
-            <section id="intro">
-                
-                <header>
-                    <a href="/">
-                        <img src="/img/Logo.png" alt="logo de casa criativa">
-                    </a>
-                </header>
+{% block content %}
 
-                <main>
-                    <p>
-                        Ficar em casa em periodos longos não deve ser nada fácil.
-                    </p>
-                    <p>
-                        Por isso, iremos catalogar ideias, <strong>brincadeiras, jogos, filmes,
-                        livros, cursos, dicas</strong> e tudo que for necessário para tornar esse
-                        momento mais interessante.
-                    </p>
-                    <p>
-                        Comece clicando em <span>ver ideias</span> para ver as ideias cadastradas e 
-                        <span>contribua adicionando sua ideia</span>
-                    </p>
-                </main>
+    <section id="intro">
+                    
+        <header>
+            <a href="/">
+                <img src="/img/Logo.png" alt="logo de casa criativa">
+            </a>
+        </header>
 
-                <section id="buttons">
-                    <button onclick="onOff()">+ Adicionar Ideia</button>
-                    <a href="/ideias" class="button">Ver Ideias</a>
-                </section>
+        <main>
+            <p>
+                Ficar em casa em periodos longos não deve ser nada fácil.
+            </p>
+            <p>
+                Por isso, iremos catalogar ideias, <strong>brincadeiras, jogos, filmes,
+                livros, cursos, dicas</strong> e tudo que for necessário para tornar esse
+                momento mais interessante.
+            </p>
+            <p>
+                Comece clicando em <span>ver ideias</span> para ver as ideias cadastradas e 
+                <span>contribua adicionando sua ideia</span>
+            </p>
+        </main>
 
-                <footer>
-                    <p id="footer">Com ❤️ <a href="http://rocketseat.com.br" target="_blank">Rocktseat</a></p>
-                </footer>
-            </section>
+        <section id="buttons">
+            <button onclick="onOff()">+ Adicionar Ideia</button>
+            <a href="/ideias" class="button">Ver Ideias</a>
+        </section>
 
-            <section id="last-ideas">
+        <footer>
+            <p id="footer">Com ❤️ <a href="http://rocketseat.com.br" target="_blank">Rocktseat</a></p>
+        </footer>
+    </section>
 
-                {% for idea in ideas %}
-                    <div class="idea">
-                        <img
-                            src="{{idea.img}}" 
-                            alt="Imagem de {{idea.title}}">
-
-                        <div class="content">
-                            <h3>{{idea.title}}</h3>
-                            <p>{{idea.category}}</p>
-                            <div class="description">
-                                {{idea.description}}
-                            </div>
-                            <a href="{{idea.url}}">Ir para a ideia</a>
-                        </div>
-                    </div>
-                {% endfor %}
-
-            </section>
-
-        </div>
-        
-        {% include "modal.html" %}
-
-        <script src="/js/scripts.js"></script>
-    </body>
-</html>
+    <section id="last-ideas">
+        {% include "all_ideas.html" %}
+    </section>
+{% endblock %}

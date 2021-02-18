@@ -1,59 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+{% extends "layout.html" %}
+{% set bodyId = "page-ideas" %}
+
+{% block title %}
     <title>Ideias - Casa Criativa</title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body id="page-ideas">
+{% endblock %}
 
-    <div id="container">
-        <header>
-            <a href="/">
-                <img src="/img/Logo.png" alt="Logo da Casa Criativa">
-            </a>
+{% block content %}
+    <header>
+        <a href="/">
+            <img src="/img/Logo.png" alt="Logo da Casa Criativa">
+        </a>
 
-            <nav>
-                <li><a href="/">Início</a></li>
-                <li><a href="#" onclick="onOff()" class="button">Nova Ideia</a></li>
-            </nav>
-        </header>
-    
-        <section id="title">
-            <p>em exibição</p>
-            <h1>Ideias</h1>
+        <nav>
+            <li><a href="/">Início</a></li>
+            <li><a href="#" onclick="onOff()" class="button">Nova Ideia</a></li>
+        </nav>
+    </header>
+
+    <section id="title">
+        <p>em exibição</p>
+        <h1>Ideias</h1>
+    </section>
+
+    <main>
+        <section id="ideas">
+
+            {% include "all_ideas.html" %}
         </section>
-    
-        <main>
-            <section id="ideas">
-                
-                {% for idea in ideas %}
-                    <div class="idea">
-                        <img
-                            src="{{idea.img}}" 
-                            alt="Imagem de {{idea.title}}">
+    </main>
 
-                        <div class="content">
-                            <h3>{{idea.title}}</h3>
-                            <p>{{idea.category}}</p>
-                            <div class="description">
-                                {{idea.description}}
-                            </div>
-                            <a href="{{idea.url}}">Ir para a ideia</a>
-                        </div>
-                    </div>
-                {% endfor %}
-
-            </section>
-        </main>
-    
-        <footer>
-            <p id="footer">Com ❤️ <a href="http://rocketseat.com.br" target="_blank">Rocktseat</a></p>
-        </footer>
-    </div>
-
-     {% include "modal.html" %}
-
-    <script src="/js/scripts.js"></script>
-</body>
-</html>
+    <footer>
+        <p id="footer">Com ❤️ <a href="http://rocketseat.com.br" target="_blank">Rocktseat</a></p>
+    </footer>
+{% endblock %}
