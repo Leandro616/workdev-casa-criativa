@@ -1,13 +1,16 @@
+// modulos intalados
 // express - cria e configura o servidor 
 // nodemon - monitora o node e reinicia o servidor a cada atualização no arquivo
-
+// nunjuks
 
 // express cria e configura meu servidor
 const express = require("express");
 const server = express();
 
+const db = require("./db");
+
 // array de ideias
-const ideas = [
+/* const ideas = [
     {
         img:"https://www.flaticon.com/svg/static/icons/svg/2729/2729007.svg",
         title: "Curso de Programação",
@@ -36,7 +39,7 @@ const ideas = [
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi magnam",
         url: "https:rocketseat.com.br"
     },
-]
+] */
 
 
 
@@ -54,20 +57,40 @@ nunjucks.configure("views", {
 // rota
 // captura o pedido do cliente para responder
 server.get("/", function(req, res) {
-    
-    const ideasReversed = [...ideas].reverse()
-    let lastIdeas = []
-    for (let idea of ideasReversed) {
-        if (lastIdeas.length < 2) {
-            lastIdeas.push(idea)
-        }
-    }
 
-    return res.render("index.html", { ideas: lastIdeas });
+    db.all("SELECT * FROM ideas", function(err, rows) {
+        if (err) {
+            console.log(err);
+            return res.send("Erro no banco de dados!");
+        }
+        
+        const ideasReversed = [...rows].reverse();
+        let lastIdeas = [];
+
+        for (let idea of ideasReversed) {
+            if (lastIdeas.length < 2) {
+                lastIdeas.push(idea)
+            }
+        }
+
+        return res.render("index.html", { ideas: lastIdeas });
+    });
+    
+    
 });
 
 server.get("/ideias", function(req, res) {
-    return res.render("ideias.html", {ideas});
+
+    db.all("SELECT * FROM ideas", function(err, rows) {
+        if (err) {
+            console.log(err);
+            return res.send("Erro no banco de dados!");
+        }
+            
+
+        const ideas = rows
+        return res.render("ideias.html", {ideas: ideas});
+    })
 });
 
 // servidor ligado na porta 3000
