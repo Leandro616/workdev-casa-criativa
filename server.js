@@ -16,28 +16,28 @@ const db = require("./db");
         title: "Curso de Programação",
         category: "Estudo",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi magnam",
-        url: "https:rocketseat.com.br"
+        url: "https://rocketseat.com.br"
     },
     {
         img:"https://www.flaticon.com/svg/static/icons/svg/2729/2729005.svg",
         title: "Exercicios",
         category: "Saúde",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi magnam",
-        url: "https:rocketseat.com.br"
+        url: "https://rocketseat.com.br"
     },
     {
         img:"https://www.flaticon.com/svg/static/icons/svg/2729/2729027.svg",
         title: "Meditação",
         category: "Mentalidade",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi magnam",
-        url: "https:rocketseat.com.br"
+        url: "https://rocketseat.com.br"
     },
     {
         img:"https://cdn.icon-icons.com/icons2/897/PNG/512/1-04_icon-icons.com_69203.png",
         title: "Games",
         category: "Diversão",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi magnam",
-        url: "https:rocketseat.com.br"
+        url: "https://rocketseat.com.br"
     },
 ] */
 
@@ -45,6 +45,9 @@ const db = require("./db");
 
 // configura os arqivos estaticos(css, scripts, imagens) em uma pasta
 server.use(express.static("public"));
+
+// habitar o uso do req.body
+server.use(express.urlencoded({ extended: true }))
 
 // configura o nunjucks
 const nunjucks = require("nunjucks")
@@ -92,6 +95,36 @@ server.get("/ideias", function(req, res) {
         return res.render("ideias.html", {ideas: ideas});
     })
 });
+
+server.post("/", function (req, res) {
+    // inserir dados
+    const query = `
+        INSERT INTO ideas(
+            image,
+            title,
+            category,
+            description,    
+            link
+        ) VALUES(?,?,?,?,?);
+    `
+
+    const values = [
+        req.body.image,
+        req.body.title,
+        req.body.category,
+        req.body.description,
+        req.body.link
+    ]
+
+    db.run(query, values, function(err) {
+        if (err) {
+            console.log(err)
+            return res.send("Erro no banco de dados!")
+        }
+
+        return res.redirect("/ideias")
+    })
+})
 
 // servidor ligado na porta 3000
 server.listen(3000);
